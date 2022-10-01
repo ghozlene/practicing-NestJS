@@ -3,6 +3,7 @@ import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
 import { SerializeInterceptor } from 'src/interceptor/serialize.interceptor';
+import { UserDto } from './dtos/uset.dto';
 @Controller('auth')
 export class UsersController {
     constructor(private usersService: UsersService) { }
@@ -16,7 +17,7 @@ export class UsersController {
     }
 
     @Get('/:id')
-    @UseInterceptors(SerializeInterceptor)
+    @UseInterceptors(new SerializeInterceptor(UserDto))
     async findUser(
         @Param('id') id: string) {
 
