@@ -32,8 +32,8 @@ export class UsersService {
         if (!user) {
             throw new Error('404-user not found ');
         }
-        Object.assign(user, { attrs });
-        return this.repo.save(user);
+        Object.assign(user, attrs);
+        return await this.repo.save(user);
 
 
     }
