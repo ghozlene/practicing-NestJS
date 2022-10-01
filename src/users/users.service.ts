@@ -38,8 +38,12 @@ export class UsersService {
 
     }
 
-    remove(id: number) {
-
+    async remove(id: number) {
+        const user = await this.findOne(id);
+        if (!user) {
+            throw new Error('404-user not found ');
+        }
+        return this.repo.remove(user);
     }
 
 }
