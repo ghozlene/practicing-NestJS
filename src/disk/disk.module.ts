@@ -4,7 +4,8 @@ import { DiskService } from './disk.service';
 
 @Module({
   imports: [PowerModule],
-  providers: [DiskService]
+  providers: [DiskService],
+  exports: [DiskService]
 
 })
 export class DiskModule { }
